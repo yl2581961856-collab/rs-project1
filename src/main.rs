@@ -1,8 +1,9 @@
 mod config;
-mod error;
-mod server;
 mod core;
+mod error;
 mod integration;
+mod protocol;
+mod server;
 
 use crate::config::Config;
 use crate::server::build_app;

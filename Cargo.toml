@@ -3,17 +3,41 @@ name = "voice-gateway"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = ["tokio-ws"]
+tokio-ws = []
+monoio-ws = []
+cosyvoice = []
+
 [dependencies]
+# Web / WebSocket (Tokio mode)
 axum = { version = "0.7", features = ["ws", "macros"] }
 tokio = { version = "1.37", features = ["full"] }
 tower-http = { version = "0.5", features = ["trace"] }
 
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Async utilities
+futures-util = "0.3"
+
+# Core utilities
 bytes = "1.6"
 uuid = { version = "1.10", features = ["v4"] }
 dotenvy = "0.15"
+crossbeam-channel = "0.5"
 
+# Logging and observability
 tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
 
+# Error handling
 thiserror = "1.0"
 anyhow = "1.0"
+
+# Testing
+[dev-dependencies]
+tokio-tungstenite = "0.24"
+proptest = "1.5"
+criterion = { version = "0.5", features = ["async_tokio"] }

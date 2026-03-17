@@ -1,0 +1,46 @@
+# Build artifacts
+/target/
+hello_cargo/target/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files (large binaries)
+*.gguf
+*.onnx
+*.bin
+*.pt
+*.pth
+models/
+
+# Profiling / benchmark data
+perf.data
+perf.data.old
+flamegraph.svg
+
+# Experiment logs and data
+bench/results/
+*.csv
+*.parquet
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Docker
+docker-compose.override.yml

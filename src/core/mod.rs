@@ -1,5 +1,7 @@
-pub mod events;
+pub mod bridge;
 pub mod commands;
-pub mod state;
+pub mod events;
+pub mod metrics;
 pub mod session;
+pub mod state;
 pub mod vad;
